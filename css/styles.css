@@ -9,9 +9,14 @@ VARIABLES
 
   /* COLORS */
   --text-default-color: #222222;
+  --white: #ffffff;
+  --grey: #dddddd;
+  --dark-grey: #c4c4c4;
 
   /* PADDING */
+  --padding-small: 0.8rem;
   --padding-standard: 1rem;
+  --padding-large: 1.5rem;
 
   /* MARGIN */
   --margin-standard: 1rem;
@@ -19,6 +24,10 @@ VARIABLES
   /* ROW GAP */
   --row-gap-standard: 1rem;
   --row-gap-double: 2rem;
+
+  /* FONT SIZE */
+  --font-size-standard: 1rem;
+  --font-size-large: 1.2rem;
 }
 
 * {
@@ -70,6 +79,7 @@ HEADER
 }
 
 .description {
+  font-size: var(--font-size-large);
   max-width: 400px;
   text-align: justify;
 }
@@ -78,9 +88,10 @@ HEADER
 BUTTONS
 **********/
 .btn {
-  border: 0.0625rem solid black;
+  font-size: var(--font-size-large);
+  border: 0.0625rem solid var(--text-default-color);
   padding: var(--padding-standard) 0;
-  width: 10rem;
+  width: 12rem;
   text-align: center;
   text-transform: capitalize;
 }
@@ -89,4 +100,49 @@ BUTTONS
   cursor: pointer;
   transform: scale(1.1);
   transition: all 150ms;
+}
+
+/**********
+QUESTIONS
+**********/
+.choice {
+  display: flex;
+  width: 100%;
+  font-size: var(--font-size-large);
+  border: 0.0625rem solid black;
+}
+
+.choice:hover {
+  cursor: pointer;
+  background: var(--grey);
+  transition: all 150ms;
+}
+
+.choice:hover .choice-text {
+  font-weight: 900;
+  transition: all 150ms;
+}
+
+.choice-label {
+  padding: var(--padding-standard) var(--padding-large);
+  background-color: var(--text-default-color);
+  color: var(--white);
+}
+
+.choice-text {
+  padding: var(--padding-standard) var(--padding-large);
+}
+
+.feedback {
+  margin-top: var(--margin-standard);
+  padding: var(--padding-small) 0;
+  border-top: 0.125rem solid var(--dark-grey);
+  color: var(--dark-grey);
+  font-size: var(--font-size-large);
+  font-style: italic;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
 }
