@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/**********
+VARIABLES
+**********/
+:root {
+  /* DIMENSIONS */
+  --max-width: 800px;
+
+  /* COLORS */
+  --text-default-color: #222222;
+
+  /* PADDING */
+  --padding-standard: 1rem;
+
+  /* MARGIN */
+  --margin-standard: 1rem;
+
+  /* ROW GAP */
+  --row-gap-standard: 1rem;
+  --row-gap-double: 2rem;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-default-color);
+}
+
+/**********
+FLEX UTILS
+**********/
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--row-gap-standard);
+}
+
+.center-content {
+  justify-content: center;
+  align-items: center;
+}
+
+/**********
+WRAPPER
+**********/
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 var(--padding-standard);
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: var(--row-gap-standard);
+  margin: 0 auto;
+}
+
+.wrapper > * {
+  width: 100%;
+}
+
+/**********
+HEADER
+**********/
+.title {
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.description {
+  max-width: 400px;
+  text-align: justify;
+}
+
+/**********
+BUTTONS
+**********/
+.btn {
+  border: 0.0625rem solid black;
+  padding: var(--padding-standard) 0;
+  width: 10rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 150ms;
+}
