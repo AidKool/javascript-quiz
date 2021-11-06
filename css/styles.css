@@ -104,6 +104,10 @@ BUTTONS
   transition: all 150ms;
 }
 
+.btn-next {
+  margin: 0 auto;
+}
+
 /**********
 QUESTIONS
 **********/

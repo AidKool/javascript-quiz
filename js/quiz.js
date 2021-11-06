@@ -18,14 +18,8 @@ fetch(URL)
   });
 
 function init() {
+  reset();
   displayQuestion();
-
-  const choices = document.querySelectorAll('.choice');
-  choices.forEach((choice) => {
-    choice.addEventListener('click', (event) => {
-      processAnswer(event, choices);
-    });
-  });
 }
 
 function displayQuestion() {
@@ -50,18 +44,33 @@ function displayQuestion() {
     .join('');
 
   html = html.concat(answers);
-  html = html.concat('</ul><p class="feedback">Feedback goes here</p>');
+  html = html.concat('</ul><p class="feedback hidden">Feedback goes here</p>');
+  html = html.concat('<button class="btn btn-next">next</button>');
 
   questions.innerHTML = html;
+
+  const choices = document.querySelectorAll('.choice');
+  choices.forEach((choice) => {
+    choice.addEventListener('click', (event) => {
+      processAnswer(event, choices);
+    });
+  });
+
+  const nextBtn = document.querySelector('.btn-next');
+  nextBtn.addEventListener('click', () => {
+    if (currentQuestion < questionsLoaded.length - 1) {
+      currentQuestion++;
+      displayQuestion();
+    } else {
+      window.location.href = './../end.html';
+    }
+  });
 }
 
 function processAnswer(event, choices) {
   const chosenAnswer = event.currentTarget.dataset.answer;
-
   disableClicks(choices);
-
   const feedback = document.querySelector('.feedback');
-
   displayFeedback(choices, chosenAnswer, feedback);
 }
 
@@ -97,4 +106,9 @@ function colourChoice(choice) {
   } else {
     text.classList.add('wrong-answer');
   }
+}
+
+function reset() {
+  currentQuestion = 0;
+  points = 0;
 }

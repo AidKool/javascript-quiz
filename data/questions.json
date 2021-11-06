@@ -68,7 +68,7 @@
       "incorrect_answers":[
          "null",
          "NaN",
-         "'empty'"
+         "empty"
       ]
    }
 ]
