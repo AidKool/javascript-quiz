@@ -50,7 +50,7 @@ function displayQuestion() {
     .join('');
 
   html = html.concat(answers);
-  html = html.concat('</ul><p class="feedback hidden">Feedback goes here</p>');
+  html = html.concat('</ul><p class="feedback">Feedback goes here</p>');
 
   questions.innerHTML = html;
 }
@@ -62,7 +62,7 @@ function processAnswer(event, choices) {
 
   const feedback = document.querySelector('.feedback');
 
-  displayFeedback(chosenAnswer, feedback);
+  displayFeedback(choices, chosenAnswer, feedback);
 }
 
 function checkAnswer(chosenAnswer) {
@@ -75,7 +75,10 @@ function disableClicks(choices) {
   });
 }
 
-function displayFeedback(chosenAnswer, feedback) {
+function displayFeedback(choices, chosenAnswer, feedback) {
+  choices.forEach((choice) => {
+    colourChoice(choice);
+  });
   if (checkAnswer(chosenAnswer)) {
     points += BONUS_POINTS;
     feedback.textContent = `You got it! You won ${BONUS_POINTS} point(s)!`;
@@ -84,4 +87,14 @@ function displayFeedback(chosenAnswer, feedback) {
     feedback.textContent = `Wrong! You lost ${PENALTY_POINTS} point(s)!`;
   }
   feedback.classList.remove('hidden');
+}
+
+function colourChoice(choice) {
+  const answer = choice.dataset.answer;
+  const text = choice.querySelector('.choice-text');
+  if (checkAnswer(answer)) {
+    text.classList.add('right-answer');
+  } else {
+    text.classList.add('wrong-answer');
+  }
 }

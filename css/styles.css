@@ -12,6 +12,8 @@ VARIABLES
   --white: #ffffff;
   --grey: #dddddd;
   --dark-grey: #c4c4c4;
+  --right-answer: #00b737;
+  --wrong-answer: #dd2525;
 
   /* PADDING */
   --padding-small: 0.8rem;
@@ -145,4 +147,14 @@ QUESTIONS
 
 .hidden {
   display: none;
+}
+
+.right-answer {
+  color: var(--right-answer);
+  font-weight: 900;
+}
+
+.wrong-answer {
+  color: var(--wrong-answer);
+  font-weight: 900;
 }
