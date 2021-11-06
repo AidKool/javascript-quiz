@@ -112,6 +112,11 @@ BUTTONS
   transition: all 150ms;
 }
 
+.btn[disabled]:hover {
+  cursor: initial;
+  transform: scale(1);
+}
+
 .btn-next {
   margin: 0 auto;
 }
@@ -174,7 +179,7 @@ QUESTIONS
 /**********
 END
 **********/
-.score {
+.score-text {
   font-size: var(--font-size-extra-large);
   color: var(--text-default-color);
 }
@@ -184,6 +189,11 @@ END
   height: 3rem;
   font-size: var(--font-size-large);
   padding: 0 var(--padding-small);
+}
+
+.error-message {
+  font-size: var(--font-size-large);
+  color: var(--wrong-answer);
 }
 
 /**********

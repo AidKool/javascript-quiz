@@ -95,6 +95,8 @@ function displayFeedback(choices, chosenAnswer, feedback) {
     points -= PENALTY_POINTS;
     feedback.textContent = `Wrong! You lost ${PENALTY_POINTS} point(s)!`;
   }
+  localStorage.setItem('points', points);
+  console.log('points added');
   feedback.classList.remove('hidden');
 }
 
@@ -111,4 +113,5 @@ function colourChoice(choice) {
 function reset() {
   currentQuestion = 0;
   points = 0;
+  localStorage.setItem('points', points);
 }
