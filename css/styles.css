@@ -16,6 +16,7 @@ VARIABLES
   --wrong-answer: #dd2525;
 
   /* PADDING */
+  --padding-extra-small: 0.5rem;
   --padding-small: 0.8rem;
   --padding-standard: 1rem;
   --padding-large: 1.5rem;
@@ -182,5 +183,22 @@ END
   width: var(--button-width);
   height: 3rem;
   font-size: var(--font-size-large);
+  padding: 0 var(--padding-small);
+}
+
+/**********
+HIGHSCORES
+**********/
+.result {
+  display: flex;
+  width: 100%;
+  font-size: var(--font-size-large);
+}
+
+.position {
+  padding: 0;
+}
+
+.initials {
   padding: 0 var(--padding-small);
 }
