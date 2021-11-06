@@ -30,6 +30,13 @@ VARIABLES
   /* FONT SIZE */
   --font-size-standard: 1rem;
   --font-size-large: 1.2rem;
+  --font-size-extra-large: 1.5rem;
+
+  /* BUTTONS */
+  --button-width: 12rem;
+
+  /* BORDERS */
+  --btn-border: 0.0625rem solid var(--text-default-color);
 }
 
 * {
@@ -91,9 +98,9 @@ BUTTONS
 **********/
 .btn {
   font-size: var(--font-size-large);
-  border: 0.0625rem solid var(--text-default-color);
+  border: var(--btn-border);
   padding: var(--padding-standard) 0;
-  width: 12rem;
+  width: var(--button-width);
   text-align: center;
   text-transform: capitalize;
 }
@@ -115,7 +122,7 @@ QUESTIONS
   display: flex;
   width: 100%;
   font-size: var(--font-size-large);
-  border: 0.0625rem solid black;
+  border: var(--btn-border);
 }
 
 .choice:hover {
@@ -161,4 +168,19 @@ QUESTIONS
 .wrong-answer {
   color: var(--wrong-answer);
   font-weight: 900;
+}
+
+/**********
+END
+**********/
+.score {
+  font-size: var(--font-size-extra-large);
+  color: var(--text-default-color);
+}
+
+.initials-input {
+  width: var(--button-width);
+  height: 3rem;
+  font-size: var(--font-size-large);
+  padding: 0 var(--padding-small);
 }
