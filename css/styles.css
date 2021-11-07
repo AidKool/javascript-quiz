@@ -49,6 +49,10 @@ VARIABLES
 /**********
 FLEX UTILS
 **********/
+.flex {
+  display: flex;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -219,4 +223,11 @@ TABLE UTILS
 **********/
 .table-text-center {
   text-align: center;
+}
+
+/**********
+TIMER
+**********/
+.timer {
+  font-size: var(--font-size-extra-large);
 }

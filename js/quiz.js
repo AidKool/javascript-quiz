@@ -1,9 +1,11 @@
 const URL = '../data/questions.json';
 
 const questions = document.querySelector('.questions');
+const timer = document.querySelector('.timer');
 let questionsLoaded = [];
 let currentQuestion = 0;
 let points = 0;
+let timeLeft = 40;
 
 const BONUS_POINTS = 2;
 const PENALTY_POINTS = 1;
@@ -19,8 +21,12 @@ fetch(URL)
 
 function init() {
   reset();
-  displayQuestion();
+  countdown();
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  timer.textContent = timeLeft;
+});
 
 function displayQuestion() {
   const options = ['A', 'B', 'C', 'D'];
@@ -113,5 +119,20 @@ function colourChoice(choice) {
 function reset() {
   currentQuestion = 0;
   points = 0;
+  timeLeft = 40;
   localStorage.setItem('points', points);
+}
+
+function countdown() {
+  displayQuestion();
+  var timeInterval = setInterval(function () {
+    timeLeft--;
+    timer.textContent = timeLeft;
+    if (timeLeft === 0) {
+      console.log('timer = 0');
+      timer.textContent = '';
+      clearInterval(timeInterval);
+      window.location.href = '../highscores.html';
+    }
+  }, 1000);
 }
