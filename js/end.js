@@ -5,7 +5,7 @@ const scoreText = document.querySelector('.score-text');
 const saveBtn = document.querySelector('.btn-save');
 const errorMessage = document.querySelector('.error-message');
 
-const MAX_HIGHSCORES = 3;
+const MAX_HIGHSCORES = localStorage.getItem('MAX_HIGHSORES');
 
 if (!highscores) {
   highscores = [];

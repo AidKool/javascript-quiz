@@ -1,6 +1,13 @@
-const highscores = JSON.parse(localStorage.getItem('highscores'));
+let highscores = JSON.parse(localStorage.getItem('highscores'));
 const results = document.querySelectorAll('.result');
 const resultsTable = document.querySelector('.results');
+
+const MAX_HIGHSORES = localStorage.getItem('MAX_HIGHSORES');
+
+if (!highscores) {
+  highscores = [];
+}
+fillScores();
 
 let table = `<table class="results">
                <tr class="result">
@@ -24,3 +31,13 @@ window.addEventListener('DOMContentLoaded', () => {
   table = table.concat('</table>');
   resultsTable.innerHTML = table;
 });
+
+function fillScores() {
+  for (let i = highscores.length; i < MAX_HIGHSORES; i++) {
+    const score = {
+      initials: '-',
+      points: 0,
+    };
+    highscores.push(score);
+  }
+}

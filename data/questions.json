@@ -40,7 +40,7 @@
       "correct_answer":"parentheses ()",
       "incorrect_answers":[
          "brackets []",
-         "curly Brackets {}",
+         "curly brackets {}",
          "either parentheses or brackets"
       ]
    },
