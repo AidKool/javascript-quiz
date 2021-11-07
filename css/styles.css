@@ -54,9 +54,20 @@ FLEX UTILS
   row-gap: var(--row-gap-standard);
 }
 
-.center-content {
+.flex-center-content {
   justify-content: center;
   align-items: center;
+}
+
+/* *********
+GRID UTILS
+**********/
+.grid {
+  display: grid;
+}
+
+.grid-align-end {
+  justify-self: end;
 }
 
 /**********
@@ -110,11 +121,6 @@ BUTTONS
   cursor: pointer;
   transform: scale(1.1);
   transition: all 150ms;
-}
-
-.btn[disabled]:hover {
-  cursor: initial;
-  transform: scale(1);
 }
 
 .btn-next {
@@ -200,15 +206,22 @@ END
 HIGHSCORES
 **********/
 .result {
-  display: flex;
   width: 100%;
   font-size: var(--font-size-large);
+  gap: var(--padding-standard);
 }
 
 .position {
+  grid-column: 1 / 2;
   padding: 0;
+  font-weight: 900;
 }
 
 .initials {
-  padding: 0 var(--padding-small);
+  grid-column: 2 / 3;
+  width: auto;
+}
+
+.points {
+  grid-column: 3 / 4;
 }
