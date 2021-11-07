@@ -49,6 +49,11 @@ VARIABLES
   color: var(--text-default-color);
 }
 
+html,
+body {
+  background: var(--white);
+}
+
 /**********
 FLEX UTILS
 **********/
