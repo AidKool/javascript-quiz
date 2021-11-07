@@ -16,6 +16,7 @@ VARIABLES
   --wrong-answer: #dd2525;
 
   /* PADDING */
+  --padding-slight: 0.2rem;
   --padding-extra-small: 0.5rem;
   --padding-small: 0.8rem;
   --padding-standard: 1rem;
@@ -57,17 +58,6 @@ FLEX UTILS
 .flex-center-content {
   justify-content: center;
   align-items: center;
-}
-
-/* *********
-GRID UTILS
-**********/
-.grid {
-  display: grid;
-}
-
-.grid-align-end {
-  justify-self: end;
 }
 
 /**********
@@ -208,20 +198,25 @@ HIGHSCORES
 .result {
   width: 100%;
   font-size: var(--font-size-large);
-  gap: var(--padding-standard);
 }
 
 .position {
-  grid-column: 1 / 2;
   padding: 0;
   font-weight: 900;
+  padding: var(--padding-slight) var(--padding-small);
 }
 
 .initials {
-  grid-column: 2 / 3;
-  width: auto;
+  padding: 0 var(--padding-small);
 }
 
 .points {
-  grid-column: 3 / 4;
+  padding: 0 var(--padding-small);
+}
+
+/**********
+TABLE UTILS
+**********/
+.table-text-center {
+  text-align: center;
 }

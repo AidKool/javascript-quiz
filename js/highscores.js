@@ -1,17 +1,26 @@
 const highscores = JSON.parse(localStorage.getItem('highscores'));
 const results = document.querySelectorAll('.result');
-const resultsContainer = document.querySelector('.results');
+const resultsTable = document.querySelector('.results');
+
+let table = `<table class="results">
+               <tr class="result">
+                 <th class="position table-text-center">Pos</th>
+                 <th class="initials table-text-center">Initials</th>
+                 <th class="points table-text-center">Score</th>
+               </tr>`;
 
 window.addEventListener('DOMContentLoaded', () => {
-  const list = highscores
+  const tableElements = highscores
     .map((item, index) => {
-      return `<li class="result grid">
-              <p class="position">${index + 1}</p>
-              <p class="initials">${item.initials}</p>
-              <p class="points grid-align-end">${item.points}</p>
-            </li>`;
+      return `<tr class="result">
+                  <td class="position table-text-center">${index + 1}</td>
+                  <td class="initials table-text-center">${item.initials}</td>
+                  <td class="points table-text-center">${item.points}</td>
+                </tr>`;
     })
     .join('');
 
-  resultsContainer.innerHTML = list;
+  table = table.concat(tableElements);
+  table = table.concat('</table>');
+  resultsTable.innerHTML = table;
 });
