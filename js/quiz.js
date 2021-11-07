@@ -50,7 +50,7 @@ function displayQuestion() {
     .join('');
 
   html = html.concat(answers);
-  html = html.concat('</ul><p class="feedback hidden">Feedback goes here</p>');
+  html = html.concat('</ul><p class="feedback invisible">Feedback goes here</p>');
   html = html.concat('<button class="btn btn-next">next</button>');
 
   questions.innerHTML = html;
@@ -103,7 +103,7 @@ function displayFeedback(choices, chosenAnswer, feedback) {
   }
   localStorage.setItem('points', points);
   console.log('points added');
-  feedback.classList.remove('hidden');
+  feedback.classList.remove('invisible');
 }
 
 function colourChoice(choice) {

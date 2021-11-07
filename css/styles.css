@@ -166,6 +166,10 @@ QUESTIONS
   display: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .right-answer {
   color: var(--right-answer);
   font-weight: 900;
