@@ -1,11 +1,11 @@
+import { MAX_HIGHSCORES } from './data.js';
+
 let highscores = JSON.parse(localStorage.getItem('highscores'));
 const initialsInput = document.querySelector('.initials-input');
 const points = localStorage.getItem('points');
 const scoreText = document.querySelector('.score-text');
 const saveBtn = document.querySelector('.btn-save');
 const errorMessage = document.querySelector('.error-message');
-
-const MAX_HIGHSCORES = localStorage.getItem('MAX_HIGHSORES');
 
 if (!highscores) {
   highscores = [];

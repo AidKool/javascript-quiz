@@ -1,8 +1,8 @@
+import { MAX_HIGHSCORES } from './data.js';
+
 let highscores = JSON.parse(localStorage.getItem('highscores'));
 const results = document.querySelectorAll('.result');
 const resultsTable = document.querySelector('.results');
-
-const MAX_HIGHSORES = localStorage.getItem('MAX_HIGHSORES');
 
 if (!highscores) {
   highscores = [];
@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function fillScores() {
-  for (let i = highscores.length; i < MAX_HIGHSORES; i++) {
+  for (let i = highscores.length; i < MAX_HIGHSCORES; i++) {
     const score = {
       initials: '-',
       points: 0,
