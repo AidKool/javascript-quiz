@@ -33,9 +33,12 @@ VARIABLES
   --font-size-standard: 1rem;
   --font-size-large: 1.2rem;
   --font-size-extra-large: 1.5rem;
+  --font-size-title: 3rem;
+  --font-size-title-small: 2.5rem;
 
   /* BUTTONS */
   --button-width: 12rem;
+  --button-width-small: 10rem;
 
   /* BORDERS */
   --btn-border: 0.0625rem solid var(--text-default-color);
@@ -69,8 +72,8 @@ WRAPPER
 **********/
 .wrapper {
   width: 100vw;
-  height: 100vh;
-  padding: 0 var(--padding-standard);
+  min-height: 100vh;
+  padding: var(--padding-standard) var(--padding-standard);
   max-width: var(--max-width);
   display: flex;
   flex-direction: column;
@@ -89,26 +92,44 @@ HEADER
 **********/
 .title {
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: var(--font-size-title-small);
   text-align: center;
 }
 
+@media screen and (min-width: 576px) {
+  .title {
+    font-size: var(--font-size-title);
+  }
+}
+
 .description {
-  font-size: var(--font-size-large);
   max-width: 400px;
   text-align: justify;
+}
+
+@media screen and (min-width: 576px) {
+  .description {
+    font-size: var(--font-size-large);
+  }
 }
 
 /**********
 BUTTONS
 **********/
 .btn {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-standard);
   border: var(--btn-border);
   padding: var(--padding-standard) 0;
-  width: var(--button-width);
+  width: var(--button-width-small);
   text-align: center;
   text-transform: capitalize;
+}
+
+@media screen and (min-width: 576px) {
+  .btn {
+    font-size: var(--font-size-large);
+    width: var(--button-width);
+  }
 }
 
 .btn:hover {
@@ -124,11 +145,27 @@ BUTTONS
 /**********
 QUESTIONS
 **********/
+.questions h2 {
+  font-size: var(--font-size-standard);
+}
+
+@media screen and (min-width: 576px) {
+  .questions h2 {
+    font-size: var(--font-size-large);
+  }
+}
+
 .choice {
   display: flex;
   width: 100%;
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-standard);
   border: var(--btn-border);
+}
+
+@media screen and (min-width: 576px) {
+  .choice {
+    font-size: var(--font-size-large);
+  }
 }
 
 .choice:hover {
@@ -143,23 +180,42 @@ QUESTIONS
 }
 
 .choice-label {
-  padding: var(--padding-standard) var(--padding-large);
+  padding: var(--padding-small) var(--padding-standard);
   background-color: var(--text-default-color);
   color: var(--white);
 }
 
+@media screen and (min-width: 576px) {
+  .choice-label {
+    padding: var(--padding-standard) var(--padding-large);
+  }
+}
+
 .choice-text {
-  padding: var(--padding-standard) var(--padding-large);
+  padding: var(--padding-small) var(--padding-standard);
+}
+
+@media screen and (min-width: 576px) {
+  .choice-text {
+    padding: var(--padding-standard) var(--padding-large);
+  }
 }
 
 .feedback {
-  margin-top: var(--margin-standard);
+  margin-top: var(--margin-small);
   padding: var(--padding-small) 0;
   border-top: 0.125rem solid var(--dark-grey);
   color: var(--dark-grey);
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-standard);
   font-style: italic;
   font-weight: bold;
+}
+
+@media screen and (min-width: 576px) {
+  .feedback {
+    margin-top: var(--margin-standard);
+    font-size: var(--font-size-large);
+  }
 }
 
 .hidden {
@@ -184,20 +240,38 @@ QUESTIONS
 END
 **********/
 .score-text {
-  font-size: var(--font-size-extra-large);
+  font-size: var(--font-size-large);
   color: var(--text-default-color);
+}
+
+@media screen and (min-width: 576px) {
+  .score-text {
+    font-size: var(--font-size-extra-large);
+  }
 }
 
 .initials-input {
   width: var(--button-width);
   height: 3rem;
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-standard);
   padding: 0 var(--padding-small);
 }
 
+@media screen and (min-width: 576px) {
+  .initials-input {
+    font-size: var(--font-size-large);
+  }
+}
+
 .error-message {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-standard);
   color: var(--wrong-answer);
+}
+
+@media screen and (min-width: 576px) {
+  .error-message {
+    font-size: var(--font-size-large);
+  }
 }
 
 /**********
@@ -205,7 +279,13 @@ HIGHSCORES
 **********/
 .result {
   width: 100%;
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-standard);
+}
+
+@media screen and (min-width: 576px) {
+  .result {
+    font-size: var(--font-size-large);
+  }
 }
 
 .position {
@@ -233,5 +313,11 @@ TABLE UTILS
 TIMER
 **********/
 .timer {
-  font-size: var(--font-size-extra-large);
+  font-size: var(--font-size-standard);
+}
+
+@media screen and (min-width: 576px) {
+  .timer {
+    font-size: var(--font-size-large);
+  }
 }
