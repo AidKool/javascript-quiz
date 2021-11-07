@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function displayQuestion() {
-  const options = ['A', 'B', 'C', 'D'];
   const question = questionsLoaded[currentQuestion];
 
   let answers = [question.correct_answer];
@@ -42,7 +41,7 @@ function displayQuestion() {
   answers = answers
     .map((item, index) => {
       return `<li class="choice" data-answer="${item}">
-                <p class="choice-label">${options[index]}</p>
+                <p class="choice-label">${String.fromCharCode(65 + index)}</p>
                 <p class="choice-text">${item}</p>
               </li>`;
     })
