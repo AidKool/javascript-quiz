@@ -2,30 +2,29 @@ const URL = '../data/questions.json';
 
 const questions = document.querySelector('.questions');
 const timer = document.querySelector('.timer');
-let questionsLoaded = [];
+const secondsPerQuestion = 5;
 let currentQuestion = 0;
 let points = 0;
-let timeLeft = 40;
+let timeLeft;
+let questionsLoaded = [];
 
 const BONUS_POINTS = 2;
 const PENALTY_POINTS = 1;
 
-fetch(URL)
-  .then(function (resp) {
-    return resp.json();
-  })
-  .then(function (data) {
-    questionsLoaded = data;
-    init();
-  });
-
-function init() {
-  reset();
-  countdown();
+async function fetchQuestions(URL) {
+  const response = await fetch(URL);
+  const questions = await response.json();
+  return questions;
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  timer.textContent = timeLeft;
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    questionsLoaded = await fetchQuestions(URL);
+    reset();
+    countdown();
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 function displayQuestion() {
@@ -102,7 +101,6 @@ function displayFeedback(choices, chosenAnswer, feedback) {
     feedback.textContent = `Wrong! You lost ${PENALTY_POINTS} point(s)!`;
   }
   localStorage.setItem('points', points);
-  console.log('points added');
   feedback.classList.remove('invisible');
 }
 
@@ -119,7 +117,8 @@ function colourChoice(choice) {
 function reset() {
   currentQuestion = 0;
   points = 0;
-  timeLeft = 40;
+  timeLeft = questionsLoaded.length * secondsPerQuestion;
+  timer.textContent = timeLeft;
   localStorage.setItem('points', points);
 }
 
@@ -129,7 +128,6 @@ function countdown() {
     timeLeft--;
     timer.textContent = timeLeft;
     if (timeLeft === 0) {
-      console.log('timer = 0');
       timer.textContent = '';
       clearInterval(timeInterval);
       window.location.href = '../highscores.html';
