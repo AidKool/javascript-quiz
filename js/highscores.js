@@ -1,7 +1,6 @@
 import { MAX_HIGHSCORES } from './data.js';
 
 let highscores = JSON.parse(localStorage.getItem('highscores'));
-const results = document.querySelectorAll('.result');
 const resultsTable = document.querySelector('.results');
 
 if (!highscores) {
