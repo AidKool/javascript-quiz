@@ -1,29 +1,29 @@
 [
    {
       "question":"Inside which HTML tag do we add JavaScript code?",
-      "correct_answer":"the script tag",
+      "correct_answer":"The 'script' tag",
       "incorrect_answers":[
-         "the js tag",
-         "the javascript tag",
-         "the scripting tag"
+         "The 'js' tag",
+         "The 'javascript' tag",
+         "The 'scripting' tag"
       ]
    },
    {
       "question":"Where is it recommended to insert Javascript?",
-      "correct_answer":"at the end of the 'body' section",
+      "correct_answer":"At the end of the 'body' section",
       "incorrect_answers":[
-         "at the end of the 'head' section",
-         "at the begining of the 'head' section",
-         "at the beginning of the 'body' section"
+         "At the end of the 'head' section",
+         "At the beginning of the 'head' section",
+         "At the beginning of the 'body' section"
       ]
    },
    {
       "question":"Which of the following is not a primitive data type?",
-      "correct_answer":"objects",
+      "correct_answer":"Objects",
       "incorrect_answers":[
-         "numbers",
-         "strings",
-         "null values"
+         "Numbers",
+         "Strings",
+         "Null values"
       ]
    },
    {
@@ -41,7 +41,7 @@
       "incorrect_answers":[
          "brackets []",
          "curly brackets {}",
-         "either parentheses or brackets"
+         "either parentheses () or brackets []"
       ]
    },
    {
