@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     questionsLoaded = await fetchQuestions(URL);
     reset();
-    countdown();
+    startQuiz();
   } catch (e) {
     console.log(e);
   }
@@ -50,7 +50,6 @@ function displayQuestion() {
 
   html = html.concat(answers);
   html = html.concat('</ul><p class="feedback invisible">Feedback goes here</p>');
-  html = html.concat('<button class="btn btn-next">next</button>');
 
   questions.innerHTML = html;
 
@@ -58,17 +57,15 @@ function displayQuestion() {
   choices.forEach((choice) => {
     choice.addEventListener('click', (event) => {
       processAnswer(event, choices);
+      let time = 1;
+      let timeInterval = setInterval(function () {
+        time--;
+        if (time === 0) {
+          clearInterval(timeInterval);
+          loadNext();
+        }
+      }, 1000);
     });
-  });
-
-  const nextBtn = document.querySelector('.btn-next');
-  nextBtn.addEventListener('click', () => {
-    if (currentQuestion < questionsLoaded.length - 1) {
-      currentQuestion++;
-      displayQuestion();
-    } else {
-      window.location.href = 'end.html';
-    }
   });
 }
 
@@ -115,6 +112,15 @@ function colourChoice(choice) {
   }
 }
 
+function loadNext() {
+  if (currentQuestion < questionsLoaded.length - 1) {
+    currentQuestion++;
+    displayQuestion();
+  } else {
+    window.location.href = 'end.html';
+  }
+}
+
 function reset() {
   currentQuestion = 0;
   points = 0;
@@ -123,7 +129,7 @@ function reset() {
   localStorage.setItem('points', points);
 }
 
-function countdown() {
+function startQuiz() {
   displayQuestion();
   var timeInterval = setInterval(function () {
     timeLeft--;
