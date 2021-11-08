@@ -3,19 +3,20 @@ import { MAX_HIGHSCORES } from './data.js';
 let highscores = JSON.parse(localStorage.getItem('highscores'));
 const resultsTable = document.querySelector('.results');
 
-if (!highscores) {
-  highscores = [];
-}
-fillScores();
+window.addEventListener('DOMContentLoaded', () => {
+  if (!highscores) {
+    highscores = [];
+  }
 
-let table = `<table class="results">
+  fillScores();
+
+  let table = `<table class="results">
                <tr class="result">
                  <th class="position table-text-center">Pos</th>
                  <th class="initials table-text-center">Initials</th>
                  <th class="points table-text-center">Score</th>
                </tr>`;
 
-window.addEventListener('DOMContentLoaded', () => {
   const tableElements = highscores
     .map((item, index) => {
       return `<tr class="result">

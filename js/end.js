@@ -7,11 +7,11 @@ const scoreText = document.querySelector('.score-text');
 const saveBtn = document.querySelector('.btn-save');
 const errorMessage = document.querySelector('.error-message');
 
-if (!highscores) {
-  highscores = [];
-}
-
 window.addEventListener('DOMContentLoaded', () => {
+  if (!highscores) {
+    highscores = [];
+  }
+
   scoreText.textContent = `Your score is ${points} points!`;
 });
 
