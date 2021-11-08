@@ -2,7 +2,7 @@ const URL = 'data/questions.json';
 
 const questions = document.querySelector('.questions');
 const timer = document.querySelector('.timer');
-const secondsPerQuestion = 5;
+const secondsPerQuestion = 10;
 let currentQuestion = 0;
 let points = 0;
 let timeLeft;
@@ -10,6 +10,7 @@ let questionsLoaded = [];
 
 const BONUS_POINTS = 2;
 const PENALTY_POINTS = 1;
+const TIME_PENALTY = 5;
 
 async function fetchQuestions(URL) {
   const response = await fetch(URL);
@@ -97,6 +98,7 @@ function displayFeedback(choices, chosenAnswer, feedback) {
     feedback.textContent = `You got it! You won ${BONUS_POINTS} point(s)!`;
   } else {
     points -= PENALTY_POINTS;
+    timeLeft -= TIME_PENALTY;
     feedback.textContent = `Wrong! You lost ${PENALTY_POINTS} point(s)!`;
   }
   localStorage.setItem('points', points);
