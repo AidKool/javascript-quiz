@@ -134,7 +134,7 @@ function startQuiz() {
   var timeInterval = setInterval(function () {
     timeLeft--;
     timer.textContent = timeLeft;
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
       timer.textContent = '';
       clearInterval(timeInterval);
       window.location.href = 'end.html';
