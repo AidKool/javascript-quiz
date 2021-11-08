@@ -22,26 +22,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-async function displayQuestion() {
+function displayQuestion() {
   const question = quizQuestions[currentQuestion];
-
-  let html = `<h2>${question.question}</h2><ul class="choices flex-column center-content">`;
-
   const answers = loadAnswers(question);
-
-  const answersHtml = answers
-    .map((item, index) => {
-      return `<li class="choice" data-answer="${item}">
-                <p class="choice-label">${String.fromCharCode(65 + index)}</p>
-                <p class="choice-text">${item}</p>
-              </li>`;
-    })
-    .join('');
-
-  html = html.concat(answersHtml);
-  html = html.concat('</ul><p class="feedback invisible">Feedback goes here</p>');
-
-  questions.innerHTML = html;
+  questions.innerHTML = `
+    <h2>${question.question}</h2>
+    <ul class="choices flex-column center-content">
+    ${answers
+      .map((item, index) => {
+        return `<li class="choice" data-answer="${item}">
+                  <p class="choice-label">${String.fromCharCode(65 + index)}</p>
+                  <p class="choice-text">${item}</p>
+                </li>`;
+      })
+      .join('')}
+    </ul>
+    <p class="feedback invisible">Feedback goes here</p>
+    `;
 
   getUserAnswer();
 }
