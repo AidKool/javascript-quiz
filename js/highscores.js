@@ -33,7 +33,7 @@ function fillScores() {
   for (let i = highscores.length; i < MAX_HIGHSCORES; i++) {
     const score = {
       initials: '-',
-      points: 0,
+      points: '-',
     };
     highscores.push(score);
   }
