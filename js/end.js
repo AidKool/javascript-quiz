@@ -28,7 +28,7 @@ saveBtn.addEventListener('click', () => {
   highscores = sortScores(highscores);
   highscores.splice(MAX_HIGHSCORES);
   localStorage.setItem('highscores', JSON.stringify(highscores));
-  window.location.href = '../highscores.html';
+  window.location.href = 'highscores.html';
 });
 
 initialsInput.addEventListener('keydown', () => {

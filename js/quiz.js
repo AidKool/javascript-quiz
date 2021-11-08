@@ -1,4 +1,4 @@
-const URL = '../data/questions.json';
+const URL = 'data/questions.json';
 
 const questions = document.querySelector('.questions');
 const timer = document.querySelector('.timer');
@@ -66,7 +66,7 @@ function displayQuestion() {
       currentQuestion++;
       displayQuestion();
     } else {
-      window.location.href = './../end.html';
+      window.location.href = 'end.html';
     }
   });
 }
@@ -129,7 +129,7 @@ function countdown() {
     if (timeLeft === 0) {
       timer.textContent = '';
       clearInterval(timeInterval);
-      window.location.href = '../highscores.html';
+      window.location.href = 'end.html';
     }
   }, 1000);
 }
