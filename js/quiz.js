@@ -2,10 +2,16 @@ import { BONUS_POINTS, PENALTY_POINTS, TIME_PENALTY, URL, QUESTION_TIME } from '
 
 const questions = document.querySelector('.questions');
 const timer = document.querySelector('.timer');
+const preloader = document.querySelector('.preloader');
+
 let currentQuestion;
 let points;
 let timeLeft;
 let quizQuestions = [];
+
+window.addEventListener('load', function () {
+  preloader.classList.add('invisible');
+});
 
 async function fetchQuestions(URL) {
   const response = await fetch(URL);

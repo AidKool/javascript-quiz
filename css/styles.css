@@ -55,6 +55,24 @@ body {
 }
 
 /**********
+PRELOADER
+**********/
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  z-index: 1000000;
+  transition: all 300ms linear;
+}
+
+/**********
 FLEX UTILS
 **********/
 .flex {

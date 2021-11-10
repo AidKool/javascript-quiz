@@ -2,6 +2,11 @@ import { MAX_HIGHSCORES } from './data.js';
 
 let highscores = JSON.parse(localStorage.getItem('highscores'));
 const resultsTable = document.querySelector('.results');
+const preloader = document.querySelector('.preloader');
+
+window.addEventListener('load', function () {
+  preloader.classList.add('invisible');
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   if (!highscores) {

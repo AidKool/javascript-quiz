@@ -6,6 +6,7 @@ const points = localStorage.getItem('points');
 const scoreText = document.querySelector('.score-text');
 const form = document.querySelector('.wrapper form');
 const errorMessage = document.querySelector('.error-message');
+const preloader = document.querySelector('.preloader');
 
 window.addEventListener('DOMContentLoaded', () => {
   if (!highscores) {
@@ -13,6 +14,10 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   scoreText.textContent = `Your score is ${points} points!`;
+});
+
+window.addEventListener('load', function () {
+  preloader.classList.add('invisible');
 });
 
 form.addEventListener('submit', (e) => {
