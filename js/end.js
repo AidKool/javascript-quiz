@@ -4,7 +4,7 @@ let highscores = JSON.parse(localStorage.getItem('highscores'));
 const initialsInput = document.querySelector('.initials-input');
 const points = localStorage.getItem('points');
 const scoreText = document.querySelector('.score-text');
-const saveBtn = document.querySelector('.btn-save');
+const form = document.querySelector('.wrapper form');
 const errorMessage = document.querySelector('.error-message');
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +15,9 @@ window.addEventListener('DOMContentLoaded', () => {
   scoreText.textContent = `Your score is ${points} points!`;
 });
 
-saveBtn.addEventListener('click', () => {
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
   if (!initialsInput.value.trim()) {
     errorMessage.classList.remove('hidden');
     return;
