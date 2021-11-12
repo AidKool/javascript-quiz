@@ -26,7 +26,7 @@ function displayQuestion() {
   const question = quizQuestions[currentQuestion];
   const answers = loadAnswers(question);
   questions.innerHTML = `
-    <h2>${question.question}</h2>
+    <h2>${currentQuestion + 1}. ${question.question}</h2>
     <ul class="choices flex-column center-content">
     ${answers
       .map((item, index) => {
