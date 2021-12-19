@@ -13,3 +13,8 @@ Short and easy Javascript quiz built using HTML/CSS and (redundantly) Javascript
 # Link to live site
 
 https://aidkool.github.io/javascript-quiz/
+
+# License
+
+This work is licensed under
+[MIT](https://github.com/AidKool/javascript-quiz/blob/master/LICENSE).
